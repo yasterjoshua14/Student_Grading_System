@@ -33,7 +33,9 @@ class StudentModel extends Database implements Crud{
         VALUES('$this->id','$this->name','$this->course','$this->year_level','$this->section')");
         if($query->execute()){
             echo "student inserted!";
-        }
+        } else {
+        echo " Insert failed: " . $query->error;
+    }
 
     }
     public function read() {
