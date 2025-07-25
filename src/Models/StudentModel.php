@@ -55,7 +55,7 @@ class StudentModel extends Database implements Crud{
     if ($this->conn->query($sql)) {
         echo "Student updated!";
     } else {
-        echo "Update failed: ". $this->conn->error;
+        echo "Update failed: ". $query->error;
     }
 
     }
@@ -65,7 +65,7 @@ class StudentModel extends Database implements Crud{
         if ($this->conn->query($sql)) {
             echo "Student Deleted successfuly!";
         } else {
-            echo "Delete Student failed!". $this->conn->error;
+            echo "Delete Student failed!". $query->error;
         }
         
     }
