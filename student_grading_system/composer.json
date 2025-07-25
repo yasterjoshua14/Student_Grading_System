@@ -1,0 +1,16 @@
+{
+    "name": "dado/gs",
+    "description": "Basic Student Grading System",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Dado\\Gs\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Dado YJ."
+        }
+    ],
+    "require": {}
+}
