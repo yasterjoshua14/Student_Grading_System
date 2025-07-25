@@ -1,9 +1,10 @@
 <?php
 
-namespace Dado\Gs\Core;
+namespace Dado\Gs\models;
 
 use  Dado\Gs\Core\Crud;
 use  Dado\Gs\Core\Database;
+
 class StudentModel extends Database implements Crud{
 
 
@@ -27,50 +28,44 @@ class StudentModel extends Database implements Crud{
 
 
 
-    public function create() {
-        $query = $this->conn->prepare("INSERT INTO `students`(`ID`, `Name`, `Course`, `year_level`, `section`) 
-        VALUES('$this->id','$this->name','$this->course','$this->year_level','$this->section')");
+    public function create(){
+        $query = $this->conn->prepare("INSERT INTO `student`(`id`, `name`, `course`, `year_level`, `section`)
+        VALUES ('$this->id','$this->name','$this->course','$this->section','$this->year_level')");
         if($query->execute()){
-            echo "student inserted!";
-        } else {
-        echo " Insert failed: " . $query->error;
-    }
+            echo "Student Created successfully!";
+        }
 
     }
-    public function read() {
+
+    public function read(){
         try {
-            $sql = "SELECT * FROM students";
+            $sql="SELECT * FROM student";
             $results = $this->conn->query($sql);
             return $results->fetch_all(MYSQLI_ASSOC);
-        } catch (\Throwable $th) {
+        } catch (\throwable $th){
             echo $th->getMessage();
         }
 
     }
-    public function update($id) {
+    public function update($id){
         $this->id=$id;
-         $sql = "UPDATE students SET Name = '$this->name', Course = '$this->course', 
-         year_level = $this->year_level, section = '$this->section' WHERE ID = $this->id";
-
-    if ($this->conn->query($sql)) {
-        echo "Student updated!";
-    } else {
-        echo "Update failed: ". $query->error;
-    }
-
-    }
-    public function delete($id) {
-        $this->id=$id;
-        $sql = "DELETE FROM `students` WHERE ID = $this->id";
-        if ($this->conn->query($sql)) {
-            echo "Student Deleted successfuly!";
-        } else {
-            echo "Delete Student failed!". $query->error;
+        $query = $this->conn->prepare
+        ("UPDATE `student` SET id='$this->id',name='$this->name',course='$this->course',year_level='$this->year_level',section='$this->section'WHERE id = $this->id"); 
+        if($query->execute()){
+         echo "Student Updated Succesfully!!\n";
         }
-        
-    }
-
-
-}
-
-?>
+         
+       }
+     
+     public function delete($id){
+        $this->id=$id;
+         $query = $this->conn->prepare("DELETE FROM `student`WHERE id = $id");
+         if($query ->execute()){
+             echo "Student Deleted!!";
+         }
+     }
+ }
+ 
+ 
+    
+    
