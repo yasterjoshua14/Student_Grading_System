@@ -1,8 +1,15 @@
 <?php
 
-use Dado\Gs\Models\StudentModel;
+use Delacruz\Gs\Models\StudentModel;
 
 require 'vendor/autoload.php';
 
-$student1 = new StudentModel;
-var_dump($student1);
+$student = new StudentModel;
+
+//$student->name="John doe";
+//$student->course="BSIT";
+//$student->year_level=4;
+//$student-sectionn;
+
+$student = StudentModel->read();
+print_r($student);
