@@ -6,6 +6,7 @@ require 'vendor/autoload.php';
 
 $student = new StudentModel;
 
+$student->id=23213;
 $student->name="John doe";
 $student->course="BSIT";
 $student->year_level=4;
