@@ -28,7 +28,6 @@ class StudentModel extends Database implements Crud{
 
 
     public function create() {
-        //cReate data
         $query = $this->conn->prepare("INSERT INTO `students`(`ID`, `Name`, `Course`, `year_level`, `section`) 
         VALUES('$this->id','$this->name','$this->course','$this->year_level','$this->section')");
         if($query->execute()){
