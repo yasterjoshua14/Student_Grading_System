@@ -10,7 +10,7 @@ $student->id=23213;
 $student->name="John doe";
 $student->course="BSIT";
 $student->year_level=4;
-$student-sectionn;
+$student->section="D";
 
 $student = StudentModel->read();
 print_r($student);
