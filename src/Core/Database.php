@@ -3,7 +3,7 @@
 namespace Dado\Gs\Core;
 use mysqli;
 class Database {
-    protected $connection;
+    protected $conn;
     public function __construct(){
        $host = 'localhost';
        $db = 'oop';
